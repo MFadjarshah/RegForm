@@ -14,9 +14,9 @@ const db = mysql.createConnection({
 });
 
 app.post("/signup", (req, res) => {
-  const sql = "INSERT INTO login (`name`, `email`, `password`) Values (?)";
+  const sql = "INSERT INTO login (`name`, `email`, `password`) VALUES (?,?,?)";
   const values = [req.body.name, req.body.email, req.body.password];
-  db.query(sql, [values], (err, data) => {
+  db.query(sql, values, (err, data) => {
     if (err) return res.json(err);
     return res.json(data);
   });

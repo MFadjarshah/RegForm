@@ -7,9 +7,11 @@ function Signup() {
     email: "",
     password: "",
   });
+
   const handleChange = (event) => {
-    setValues({ ...values, [event.target.name]: [event.target.values] });
+    setValues({ ...values, [event.target.name]: [event.target.value] });
   };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
@@ -17,6 +19,7 @@ function Signup() {
       .then((res) => console.log("Registered Successfully!!"))
       .catch((err) => console.log(err));
   };
+
   return (
     <div className="d-flex w-100 vh-100 bg-primary justify-content-center align-items-center">
       <div className="bg-white p-3 rounded w-25">
